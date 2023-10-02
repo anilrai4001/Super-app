@@ -1,0 +1,134 @@
+.register {
+    background-color: black;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-container {
+    /* background-color: darkblue; */
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+.register-container>h1 {
+    font-family: Single Day;
+    font-size: 50px;
+    font-weight: 400;
+    
+
+    color: #72DB73;
+    text-align: center;
+}
+
+.register-container>p:first-of-type {
+    font-family: DM Sans;
+    font-size: 20px;
+    font-weight: 400;
+    
+
+    color: white;
+    text-align: center;
+}
+
+.register-container>form {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.register-container>form>input {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #292929;
+    padding: 10px;
+    width: 100%;
+
+    margin: 5px 0;
+    color: white;
+
+
+    font-family: DM Sans;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+
+
+
+}
+
+.form > input:last-of-type{
+    margin-bottom: 20px;
+}
+
+.register-container>form>label {
+    color: #7C7C7C;
+
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+
+}
+
+.register-container>form>label>input {
+    margin-top: 15px;
+    margin-right: 8px;
+}
+
+.register-container>form>button {
+    width: 100%;
+    background-color: #72DB73;
+    border-radius: 30px;
+    border: none;
+
+
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 600;
+    
+    text-align: center;
+
+    color: white;
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+
+button:hover, label:hover, label>input:hover, p>span{
+    cursor: pointer;
+}
+.register-container>p {
+    color: #7C7C7C;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    
+    
+    margin: 5px 0;
+}
+
+.register-container > p > span {
+    color: #72DB73;
+}
+
+.error{
+    color: red;
+}
+
+
+
+
+
+/* Hide the number input spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
