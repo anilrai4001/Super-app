@@ -2,6 +2,7 @@ import React from 'react'
 import './register.css'
 import { useState } from 'react'
 
+
 function Register() {
 
   const [formData, setFormData] = useState({
@@ -69,35 +70,41 @@ function Register() {
   
 
   return (
-    <div className='register'>
-      <div className='register-container'>
-        <h1>Super app</h1>
-        <p>Create your new account</p>
-        <form>
-          <input type='text' placeholder='Name'  onChange={fillDetails} name='Name' />
-          {error.Name ? <div className='error'>Field is required</div> : ''}
-          
+    <div className="Register">
+      <div className='side'>
+        <p>Discover new things on<br/>Superapp</p>
+      </div>
 
-          <input type='text' placeholder='UserName' onChange={fillDetails} name='UserName' />
-          {error.UserName ? <div className='error'>Field is required</div> : ''}
+      <div className='register'>
+        <div className='register-container'>
+          <h1>Super app</h1>
+          <p>Create your new account</p>
+          <form>
+            <input type='text' placeholder='Name'  onChange={fillDetails} name='Name' />
+            {error.Name ? <div className='error'>Field is required</div> : ''}
+            
 
-          <input type='text'  placeholder='Email' onChange={fillDetails} name='Email' />
-          {error.Email ? <div className='error'>Field is required</div> : ''}
+            <input type='text' placeholder='UserName' onChange={fillDetails} name='UserName' />
+            {error.UserName ? <div className='error'>Field is required</div> : ''}
 
-          <input type='number' placeholder='Mobile' onChange={fillDetails} name='Mobile'  />
-          {error.Mobile ? <div className='error'>Field is required</div> : ''}
+            <input type='text'  placeholder='Email' onChange={fillDetails} name='Email' />
+            {error.Email ? <div className='error'>Field is required</div> : ''}
 
-          <label>
-            <input type='checkbox' name='checkbox' onChange={handleCheck}  />
-            Share my registration data with Superapp
-          </label>
-          {checkboxError ? <div className='error'>Check this box if you want to proceed</div> : '' }
-          
+            <input type='number' placeholder='Mobile' onChange={fillDetails} name='Mobile'  />
+            {error.Mobile ? <div className='error'>Field is required</div> : ''}
 
-          <button onClick={formValidation}>SIGN UP</button>
-        </form>
-        <p>By clicking on Sign up. you agree to Superapp <span>Terms and Conditions of Use</span></p>
-        <p>To learn more about how Superapp collects, uses, shares and protects your personal data please head Superapp <span>Privacy Policy</span></p>
+            <label>
+              <input type='checkbox' name='checkbox' onChange={handleCheck}  />
+              Share my registration data with Superapp
+            </label>
+            {checkboxError ? <div className='error'>Check this box if you want to proceed</div> : '' }
+            
+
+            <button onClick={formValidation}>SIGN UP</button>
+          </form>
+          <p>By clicking on Sign up. you agree to Superapp <span>Terms and Conditions of Use</span></p>
+          <p>To learn more about how Superapp collects, uses, shares and protects your personal data please head Superapp <span>Privacy Policy</span></p>
+        </div>
       </div>
     </div>
   )

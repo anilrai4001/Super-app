@@ -1,16 +1,20 @@
 import React from "react";
-import './app.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Side from "./components/Side";
+
 import Register from "./components/Register";
+import SelectCategory from "./components/SelectCategory"
 
 
 function App() {
   return (
-    <div className="app">
-      <Side/>
-      <Register/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/register" Component={Register}/>
+        <Route path="/select-category" Component={SelectCategory}/>
+      </Routes>
+    </BrowserRouter>
+    
   );
 }
 

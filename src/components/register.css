@@ -1,3 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.Register{
+    margin:0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.side {
+    width: 50%;
+    height: 100%;
+    position: relative;
+
+    background: url('../assets/side-image.png');
+
+    background-size: cover;
+
+}
+
+.side p {
+    /* background-color: yellow; */
+    width: 70%;
+    font-family: Roboto;
+    font-size: 35px;
+    font-weight: 900;
+    line-height: 48px;
+    letter-spacing: 0.02em;
+    text-align: left;
+/* background-color: aliceblue; */
+    margin: 0 auto;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    color: white;
+
+}
+
+
 .register {
     background-color: black;
     width: 50%;
