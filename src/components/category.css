@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+.Category{
+    background-color: red;
+    margin: 8px;
+    width: 11em;
+    height: 11em;
+    margin: 10px;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 20px 15px;
+}
+.Category:hover{
+    cursor: pointer;
+}
+
+.Category>p{
+    font-family: DM Sans;
+font-size: 28px;
+font-weight: 500;
+color: white;
+margin-bottom: 20px;;
+
+}
+.Category>img{
+    width: 100%;
+}

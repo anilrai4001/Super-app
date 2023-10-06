@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
-import Register from "./components/Register";
-import SelectCategory from "./components/SelectCategory"
+import Register from "./pages/register/Register";
+import SelectCategory from "./pages/select-category/SelectCategory";
+import Profile from "./pages/profile/Profile";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/register" Component={Register}/>
         <Route path="/select-category" Component={SelectCategory}/>
+        <Route path="/profile" Component={Profile}/>
       </Routes>
     </BrowserRouter>
     

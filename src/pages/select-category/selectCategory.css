@@ -1,0 +1,91 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.SelectCategory{
+    /* background-color: aliceblue; */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+.display-section{
+    width: 40%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5%;
+    
+}
+.display-section .title{
+    font-family: Single Day;
+    font-size: 55px;
+    font-weight: 400;
+    
+    color: #72DB73;
+    margin-left: 10%;
+    margin-top: 10%;
+    background-color: black;
+}
+.display-section .heading{
+    font-family: Roboto;
+    font-size: 55px;
+    font-weight: 700;
+    
+    color: white;
+    margin-left: 10%;
+    margin-top: 5%;
+    background-color: black;
+}
+.display-section .user-choice{
+    background-color: black;
+    width:80%;
+    margin-left: 10%;
+    margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.display-section .category-error{
+    margin-left: 10%;
+    color: red;
+}
+.display-section .category-error img{
+    width: 20px;
+    margin-right: 1%;
+}
+
+
+
+
+
+.category-section{
+    width: 60%;
+    background-color: black;
+    display: flex;
+    position: relative;
+}
+
+.category-section .square-container{
+    background-color: black;
+    width: 80%;
+    height:fit-content;
+    padding: 2% 30px; 
+    margin-left: 5%;
+    
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.next{
+    position: absolute;
+    bottom: 1%;
+    right: 19%;
+    cursor: pointer;
+}
+
+.bordered{
+    border: 5px solid #11B800;
+}

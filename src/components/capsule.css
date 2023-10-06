@@ -1,0 +1,18 @@
+.capsule{
+    color: white;
+    background-color: #148A08;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-family: Roboto    ;
+    display: flex;;
+    width:fit-content;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    font-weight: 400;
+}
+.capsule>span{
+    color: #085C00;
+    margin-left: 10px;
+    cursor: pointer;
+}
