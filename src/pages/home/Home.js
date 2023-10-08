@@ -13,6 +13,7 @@ function Home() {
 
   const [currentDate,setCurrentDate] = useState(new Date());
   const [weatherData, setWeatherDate] = useState({});
+  const [newsData, setNewsData] = useState();
   
   useEffect(()=>{
     const intervalId = setInterval(()=>setCurrentDate(new Date()),1000);
@@ -28,7 +29,28 @@ function Home() {
           .catch((err)=>{
             console.log(err.message);
           });
-  },)
+  },[])
+
+  useEffect(()=>{
+    const apiURL = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=e0aa803559034f45ac7faf06dca54005';
+    axios.get(apiURL)
+          .then((res)=>{
+            console.log(res.data);
+            setNewsData(res.data);
+          })
+          .catch((err)=>{
+            console.log(err.message);
+          });
+  },[])
+
+  
+
+
+
+
+
+
+
 
   // Format the date in M-D-YYYY format
   const formattedDate = `${
@@ -76,16 +98,20 @@ function Home() {
           <div className='upper-right'>
             <h2>All Notes</h2>
             <textarea>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo conse Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo conse Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo conse Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
             </textarea>
           </div>
 
         </div>
         <div className='lower-section'>dfds</div>
       </div>
-      <div className='right-section'>dfsd</div>
+      <div className='right-section'>
+        <div className='news-image' >
+          <img src={newsData?.articles[0]?.urlToImage} alt='' style={{height:'100%', width:'100%', objectFit:'cover'}}/>
+          <div className='news-headline'>{newsData?.articles[0]?.title}</div>
+        </div>
+        <div className='news-description' >{newsData?.articles[0]?.description}</div>
+        
+      </div>
     </div>
   )
 }
