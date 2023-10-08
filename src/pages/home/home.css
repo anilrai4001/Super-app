@@ -71,11 +71,53 @@
 
 
 .left-section .upper-section .upper-left .weather{
-    background-color: lightgray;
+    background-color: #101744;
     height: 40%;
     border-radius: 15px;
-
+    color: white;
+    display: flex;
+    flex-direction: column;
 }
+.date-and-time{
+    background-color:#FF4ADE;
+    padding:5px;
+    font-size:30px;
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    border-top-left-radius:15px;
+    border-top-right-radius:15px;
+}
+.live-weather{
+    display: flex;
+    gap:20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    height: 100%;
+    /* border: 2px solid red; */
+}
+ 
+.live-weather span{
+    text-align: center;
+}
+.live-weather .vertical-line{
+    border:2px solid white;
+    height: 30px;
+    width:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .left-section .upper-section .upper-right{
     background-color: #F1C75B;
     width: 50%;
