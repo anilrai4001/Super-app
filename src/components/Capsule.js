@@ -1,7 +1,7 @@
 import React from 'react';
 import './capsule.css';
 
-function Capsule({input,userPreference, setUserPreference}) {
+function Capsule({input,userPreference, setUserPreference,backgroundColor,hasCross}) {
 
   const handleClick = ()=>{
     let newArr = [...userPreference];
@@ -10,7 +10,7 @@ function Capsule({input,userPreference, setUserPreference}) {
   }
 
   return (
-    <div className='capsule' >{input} <span onClick={handleClick}>X</span></div>
+    <div className='capsule' style={{backgroundColor: backgroundColor}} >{input} <span onClick={handleClick} style={{display:`${hasCross?'':'none'}`}}>X</span></div>
   )
 }
 

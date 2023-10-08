@@ -37,13 +37,14 @@ const SelectCategory = () => {
 
   const displayCategories = categories.map((ele)=><Category key={ele.name} name={ele.name} image={ele.image} color={ele.color} userPreference={userPreference} setUserPreference={setUserPreference} />)
 
-  const chosenCategories = userPreference.map((ele)=><Capsule key={ele} input={ele} userPreference={userPreference} setUserPreference={setUserPreference} />);
+  const chosenCategories = userPreference.map((ele)=><Capsule key={ele} input={ele} userPreference={userPreference} setUserPreference={setUserPreference} hasCross={true} />);
 
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
+
   const validateAndProcede = ()=>{
     if(userPreference.length>=3){
       localStorage.setItem('userPreference', JSON.stringify(userPreference));
-      navigate('/profile');
+      Navigate('/home');
     }
   }
 

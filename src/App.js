@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Register from "./pages/register/Register";
 import SelectCategory from "./pages/select-category/SelectCategory";
-import Profile from "./pages/profile/Profile";
+import Home from "./pages/home/Home"
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/register" Component={Register}/>
         <Route path="/select-category" Component={SelectCategory}/>
-        <Route path="/profile" Component={Profile}/>
+        <Route path="/home" Component={Home}/>
       </Routes>
     </BrowserRouter>
     

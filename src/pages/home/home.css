@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+}
+.home{
+    /* background-color: antiquewhite; */
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    padding: 50px;
+    gap: 30px;
+    font-family: Roboto;
+}
+.left-section{
+    /* background-color: aliceblue; */
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
+
+}
+.left-section .upper-section{
+    /* background-color: yellowgreen; */
+    height: 70%;
+    display: flex;
+    gap: 30px;
+    
+
+}
+.left-section .upper-section .upper-left{
+    /* background-color: red; */
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
+
+}
+.left-section .upper-section .upper-left .user-profile{
+    background-color: #5746EA;
+    height: 60%;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    gap: 20px;
+    color: white;
+    /* justify-content: space-between; */
+    
+}
+.user-profile::-webkit-scrollbar{
+    display: none;
+}
+
+.user-profile::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.user-profile .user-name, .user-profile .user-email{
+    font-size: 15px;
+    margin: 5px 0;
+}
+.user-profile .user-username{
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+.left-section .upper-section .upper-left .weather{
+    background-color: lightgray;
+    height: 40%;
+    border-radius: 15px;
+
+}
+.left-section .upper-section .upper-right{
+    background-color: #F1C75B;
+    width: 50%;
+    border-radius: 15px;
+    padding: 30px;
+    overflow: hidden;
+}
+
+.upper-right h2{
+    margin: 10px;
+    font-size: 25px;
+}
+.upper-right textarea{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 15px;
+    background: none;
+    padding:10px;
+    padding-bottom: 30px;
+    
+}
+
+.upper-right textarea::-webkit-scrollbar {
+    width: 12px; /* Adjust the scrollbar width */
+    
+  }
+  
+  /* Style the scrollbar thumb (the draggable part) */
+  .upper-right textarea::-webkit-scrollbar-thumb {
+    background-color: #FFE6A6; /* Change the thumb color */
+    border-radius: 8px; /* Round the edges of the thumb */
+    
+  }
+  
+  /* Style the scrollbar track (the area behind the thumb) */
+  .upper-right textarea::-webkit-scrollbar-track {
+    background-color: none; /* Change the track color */
+    margin-bottom: 30px;
+  }
+
+.left-section .lower-section{
+    background-color: #1E2343;
+    height: 30%;
+    border-radius: 15px;
+
+}
+.right-section{
+    background-color: aqua;
+    width:35%;
+    border-radius: 15px;
+
+}

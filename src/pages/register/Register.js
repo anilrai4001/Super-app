@@ -1,9 +1,11 @@
 import React from 'react'
 import './register.css'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 function Register() {
+  const Navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     Name: '',
@@ -63,7 +65,8 @@ function Register() {
     
     if(Object.keys(newError).length===0 && checkbox===true){
       console.log(formData);
-      localStorage.setItem('user',JSON.stringify(formData));
+      localStorage.setItem('user-details',JSON.stringify(formData));
+      Navigate('/select-category');
     }
       
   };
