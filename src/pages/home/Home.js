@@ -6,10 +6,12 @@ import Capsule from '../../components/Capsule';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// import { useRef } from 'react';
+
 function Home() {
   const userDetails = JSON.parse(localStorage.getItem('user-details'));
   const userChoicesArray = JSON.parse(localStorage.getItem('userPreference'));
-  const userCategories = userChoicesArray.map((ele)=><Capsule input={ele} backgroundColor='#9F94FF' hasCross={false} />)
+  const userCategories = userChoicesArray.map((ele)=><Capsule key={ele} input={ele} backgroundColor='#9F94FF' hasCross={false} />)
 
   const [currentDate,setCurrentDate] = useState(new Date());
   const [weatherData, setWeatherDate] = useState({});
@@ -35,7 +37,7 @@ function Home() {
     const apiURL = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=e0aa803559034f45ac7faf06dca54005';
     axios.get(apiURL)
           .then((res)=>{
-            console.log(res.data);
+            // console.log(res.data);
             setNewsData(res.data);
           })
           .catch((err)=>{
@@ -63,6 +65,24 @@ function Home() {
     minute: '2-digit',
     hour12: true,
   });
+
+
+
+
+
+
+
+  let userNotes = '';
+  if(localStorage.getItem('userNotes')){
+    userNotes=localStorage.getItem('userNotes');
+  }
+  const [notes,setNotes] = useState(userNotes)
+  const handleNotes = (e)=>{
+    // console.log(e.target.value);
+    userNotes=e.target.value;
+    setNotes(userNotes);
+    localStorage.setItem('userNotes',userNotes);
+  }
 
   return (
     <div className='home'>
@@ -97,7 +117,7 @@ function Home() {
           </div>
           <div className='upper-right'>
             <h2>All Notes</h2>
-            <textarea>
+            <textarea onChange={handleNotes} defaultValue={notes}>
             </textarea>
           </div>
 
