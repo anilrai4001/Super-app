@@ -107,6 +107,9 @@ function Home() {
 
   const handleTimer = (e) => {
     if(running===true){
+      setHours(Number(remHours));
+      setMinutes(Number(remMinutes));
+      setSeconds(Number(remSeconds));
       clearInterval(intervalId);
       setRunning(false);
     }
@@ -215,7 +218,7 @@ function Home() {
             <div className='timer' style={{fontSize:'60px'}}>
               <div className='set'>
                 <p style={{fontSize:'20px'}}>Hours</p>
-                <img src={increase} alt='increase-button' onClick={()=>setHours(hours+1<24?hours+1:0)} style={{cursor:'pointer'}}/>
+                <img src={increase} alt='increase-button' onClick={()=>{setHours(hours+1<24?hours+1:0)}} style={{cursor:'pointer'}}/>
                 <p className='hours' style={{fontSize:'40px',color:'white'}}>{hours<10?'0'+hours:hours}</p>
                 <img src={decrease} alt='decrease-button' onClick={()=>setHours(hours-1>=0?hours-1:23)} style={{cursor:'pointer'}} />
               </div>
