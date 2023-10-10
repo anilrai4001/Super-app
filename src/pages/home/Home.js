@@ -6,7 +6,10 @@ import Capsule from '../../components/Capsule';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// import { useRef } from 'react';
+import increase from '../../assets/increase.png'
+import decrease from '../../assets/decrease.png'
+
+import TimeOver from '../../assets/time-over.mp3'
 
 function Home() {
   const userDetails = JSON.parse(localStorage.getItem('user-details'));
@@ -16,6 +19,9 @@ function Home() {
   const [currentDate,setCurrentDate] = useState(new Date());
   const [weatherData, setWeatherDate] = useState({});
   const [newsData, setNewsData] = useState();
+
+
+  const [audio] = useState(new Audio(TimeOver));
   
   useEffect(()=>{
     const intervalId = setInterval(()=>setCurrentDate(new Date()),1000);
@@ -84,6 +90,76 @@ function Home() {
     localStorage.setItem('userNotes',userNotes);
   }
 
+
+
+
+  const [intervalId, setIntervalId] = useState(null);
+  const [running, setRunning] = useState(false); 
+
+  const [seconds,setSeconds] = useState(0);
+  const [minutes,setMinutes] = useState(0);
+  const [hours,setHours] = useState(0);
+  
+
+  const [remSeconds,setRemSeconds] = useState(seconds<10?'0'+seconds:seconds);
+  const [remMinutes,setRemMinutes] = useState(minutes<10?'0'+minutes:minutes);
+  const [remHours,setRemHours] = useState(hours<10?'0'+hours:hours);
+
+  const handleTimer = (e) => {
+    if(running===true){
+      clearInterval(intervalId);
+      setRunning(false);
+    }
+    else{
+      if(hours===0 && minutes===0 && seconds===0){
+        return;
+      }
+      setRemHours(hours < 10 ? '0' + hours : hours);
+      setRemMinutes(minutes < 10 ? '0' + minutes : minutes);
+      setRemSeconds(seconds < 10 ? '0' + seconds : seconds);
+    
+      let totalSeconds = seconds + minutes * 60 + hours * 60 * 60;
+      const newIntervalId = setInterval(() => {
+        totalSeconds--;
+        let newHours = Math.floor(totalSeconds / 60 / 60);
+        let newMinutes = Math.floor((totalSeconds - newHours * 60 * 60) / 60);
+        let newSeconds = totalSeconds - newHours * 60 * 60 - newMinutes * 60;
+
+        if (newHours <= 0 && newMinutes <= 0 && newSeconds <= 0) {
+          clearInterval(newIntervalId); 
+          setRunning(false);
+          audio.play();
+        }
+
+        setRemHours(newHours < 10 ? '0' + newHours : newHours);
+        setRemMinutes(newMinutes < 10 ? '0' + newMinutes : newMinutes);
+        setRemSeconds(newSeconds < 10 ? '0' + newSeconds : newSeconds);
+    
+        
+      }, 1000);
+
+      setIntervalId(newIntervalId);
+      setRunning(true);
+    }
+  };
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div className='home'>
       <div className='left-section'>
@@ -122,7 +198,52 @@ function Home() {
           </div>
 
         </div>
-        <div className='lower-section'>dfds</div>
+
+
+        <div className='lower-section'>
+          <div className='running-timer' style={{fontSize:'35px'}}>
+            <div className='circular-timer'>
+              <div className='circular-border'>
+                {remHours}:{remMinutes}:{remSeconds}
+              </div>
+
+            </div>
+          </div>
+
+          <div className='set-timer'>
+
+            <div className='timer' style={{fontSize:'60px'}}>
+              <div className='set'>
+                <p style={{fontSize:'20px'}}>Hours</p>
+                <img src={increase} alt='increase-button' onClick={()=>setHours(hours+1<24?hours+1:0)} style={{cursor:'pointer'}}/>
+                <p className='hours' style={{fontSize:'40px',color:'white'}}>{hours<10?'0'+hours:hours}</p>
+                <img src={decrease} alt='decrease-button' onClick={()=>setHours(hours-1>=0?hours-1:23)} style={{cursor:'pointer'}} />
+              </div>
+              <span style={{paddingTop:'53px',color:'white'}}>:</span>
+              <div className='set'>
+                <p style={{fontSize:'20px'}}>Minutes</p>
+                <img src={increase} alt='increase-button' onClick={()=>setMinutes(minutes+1<60?minutes+1:0)}/>
+                <p className='minutes' style={{fontSize:'40px',color:'white'}}>{minutes<10?'0'+minutes:minutes}</p>
+                <img src={decrease} alt='decrease-button' onClick={()=>setMinutes(minutes-1>=0?minutes-1:59)}/>
+              </div>
+              <span style={{paddingTop:'53px',color:'white'}}>:</span>
+              <div className='set'>
+                <p style={{fontSize:'20px'}}>Seconds</p>
+                <img src={increase} alt='increase-button' onClick={()=>setSeconds(seconds+1<60?seconds+1:0)}/>
+                <p className='seconds' style={{fontSize:'40px',color:'white'}}>{seconds<10?'0'+seconds:seconds}</p>
+                <img src={decrease} alt='decrease-button' onClick={()=>setSeconds(seconds-1>=0?seconds-1:59)}/>
+              </div>
+            </div>
+
+            {
+              running===false?<button onClick={handleTimer}>Start</button>:<button onClick={handleTimer} style={{backgroundColor:'#5746EA'}}>Pause</button>
+            }
+            
+
+          </div>
+        </div>
+
+
       </div>
       <div className='right-section'>
         <div className='news-image' >
