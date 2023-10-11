@@ -8,6 +8,7 @@ import axios from 'axios';
 
 import increase from '../../assets/increase.png'
 import decrease from '../../assets/decrease.png'
+import newsImage from '../../assets/news-image.png'
 
 import TimeOver from '../../assets/time-over.mp3'
 
@@ -20,7 +21,15 @@ function Home() {
 
   const [currentDate,setCurrentDate] = useState(new Date());
   const [weatherData, setWeatherDate] = useState({});
-  const [newsData, setNewsData] = useState();
+  const [newsData, setNewsData] = useState({
+    articles:[
+      {
+        title:'Want to climb Mount Everest?',
+        description:'In the years since human beings first reached the summit of Mount Everest in 1953, climbing the world’s highest mountain has changed dramatically. Today, hundreds of mountaineers manage the feat each year thanks to improvements in knowledge, technology, and the significant infrastructure provided by commercially guided expeditions that provide a veritable highway up the mountain for those willing to accept both the......',
+        urlToImage:newsImage
+      }
+    ],
+  });
 
 
   const [audio] = useState(new Audio(TimeOver));
