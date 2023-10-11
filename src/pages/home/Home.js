@@ -11,6 +11,8 @@ import decrease from '../../assets/decrease.png'
 
 import TimeOver from '../../assets/time-over.mp3'
 
+import { useNavigate } from 'react-router-dom'; 
+
 function Home() {
   const userDetails = JSON.parse(localStorage.getItem('user-details'));
   const userChoicesArray = JSON.parse(localStorage.getItem('userPreference'));
@@ -155,9 +157,11 @@ function Home() {
 
 
 
+  const Navigate = useNavigate();
 
-
-
+  const handleBrowse = ()=>{
+    Navigate('/browse')
+  }
 
 
 
@@ -217,21 +221,21 @@ function Home() {
 
             <div className='timer' style={{fontSize:'60px'}}>
               <div className='set'>
-                <p style={{fontSize:'20px'}}>Hours</p>
+                <p style={{fontSize:'15px'}}>Hours</p>
                 <img src={increase} alt='increase-button' onClick={()=>{setHours(hours+1<24?hours+1:0)}} style={{cursor:'pointer'}}/>
                 <p className='hours' style={{fontSize:'40px',color:'white'}}>{hours<10?'0'+hours:hours}</p>
                 <img src={decrease} alt='decrease-button' onClick={()=>setHours(hours-1>=0?hours-1:23)} style={{cursor:'pointer'}} />
               </div>
               <span style={{paddingTop:'53px',color:'white'}}>:</span>
               <div className='set'>
-                <p style={{fontSize:'20px'}}>Minutes</p>
+                <p style={{fontSize:'15px'}}>Minutes</p>
                 <img src={increase} alt='increase-button' onClick={()=>setMinutes(minutes+1<60?minutes+1:0)}/>
                 <p className='minutes' style={{fontSize:'40px',color:'white'}}>{minutes<10?'0'+minutes:minutes}</p>
                 <img src={decrease} alt='decrease-button' onClick={()=>setMinutes(minutes-1>=0?minutes-1:59)}/>
               </div>
               <span style={{paddingTop:'53px',color:'white'}}>:</span>
               <div className='set'>
-                <p style={{fontSize:'20px'}}>Seconds</p>
+                <p style={{fontSize:'15px'}}>Seconds</p>
                 <img src={increase} alt='increase-button' onClick={()=>setSeconds(seconds+1<60?seconds+1:0)}/>
                 <p className='seconds' style={{fontSize:'40px',color:'white'}}>{seconds<10?'0'+seconds:seconds}</p>
                 <img src={decrease} alt='decrease-button' onClick={()=>setSeconds(seconds-1>=0?seconds-1:59)}/>
@@ -256,6 +260,11 @@ function Home() {
         <div className='news-description' >{newsData?.articles[0]?.description}</div>
         
       </div>
+
+      <div className='capsule' style={{position:'absolute', bottom:'0.5%',right:'4%',cursor:'pointer'}} onClick={handleBrowse}>
+        Browse
+      </div>
+      
     </div>
   )
 }
